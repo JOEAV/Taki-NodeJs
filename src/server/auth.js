@@ -13,13 +13,17 @@ function addUserToAuthList(req, res, next) {
 		res.status(403).send('user already exist');
 	} else {		
 		for (sessionid in userList) {
-			const name = userList[sessionid];
-			if (name === req.body) {
-				res.status(403).send('user name already exist');
-				return;
-			}
-		}		
-		userList[req.session.id] = req.body;
+			if (userList[sessionid]!== undefined) {
+                const name = userList[sessionid].name;
+                if (name === req.body) {
+                    res.status(403).send('user name already exist');
+                    return;
+                }
+            }
+		}
+        userList[req.session.id] ={}
+		userList[req.session.id].name = req.body;
+        userList[req.session.id].gameName = '';
 		next();
 	}
 }
@@ -34,7 +38,10 @@ function removeUserFromAuthList(req, res, next) {
 }
 
 function getUserInfo(id) {	
-    return {name: userList[id]};
+    return userList[id];
 }
 
-module.exports = {userAuthentication, addUserToAuthList, removeUserFromAuthList, getUserInfo}
+function updateGame(id,gameName) {
+    userList[id].gameName=gameName;
+}
+module.exports = {userAuthentication, addUserToAuthList, removeUserFromAuthList, getUserInfo,updateGame}

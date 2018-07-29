@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import LoginModal from './login-modal.jsx';
 import ChatContaier from './chatContainer.jsx';
-import Lobby from './Lobby.jsx';
-
+import GamesContainer from './gamesContainer.jsx';
 
 export default class BaseContainer extends React.Component {
     constructor(args) {
@@ -47,7 +46,7 @@ export default class BaseContainer extends React.Component {
                     Hello {this.state.currentUser.name}
                     <button className="logout btn" onClick={this.logoutHandler}>Logout</button>
                 </div>
-                <Lobby name={this.state.currentUser.name} />
+                <GamesContainer name={this.state.currentUser.name} />
             </div>
         )
     }

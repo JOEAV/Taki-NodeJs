@@ -24,6 +24,25 @@ function addGame(req, res, next) {
     }
 }
 
+
+function joinGame(req, res, next) {
+    const gameName = auth.getUserInfo(req.session.id).gameName;
+    if (gameList[req.body] === undefined) {
+        res.status(403).send('game does not exist');
+    } else if (gameList[req.body].status==='started'){
+        res.status(403).send('game already started');
+    }
+    else if (gameName !==''){
+        res.status(403).send('player already plays');
+    }
+    else {
+         if (++gameList[req.body].loggedInPlayers===gameList[req.body].numOfPlayers);
+            gameList[req.body].status ==='started'
+        auth.updateGame(req.session.id,req.body);
+        next();
+    }
+}
+
 function removeGame(req, res, next) {
     if (gameList[req.body] === undefined) {
         res.status(403).send('game does not exist');
@@ -36,7 +55,6 @@ function removeGame(req, res, next) {
 function getGameInfo(name) {
     return gameList[name];
 }
-
 
 
 const gamesManagement = express.Router();
@@ -63,6 +81,10 @@ gamesManagement.post('/addGame', addGame, (req, res) => {
 gamesManagement.post('/removeGame', removeGame, (req, res)=> {
     res.sendStatus(200);
 });
+gamesManagement.post('/joinGame', joinGame, (req, res)=> {
+    res.sendStatus(200);
+});
+
 
 
 module.exports = gamesManagement;

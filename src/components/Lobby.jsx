@@ -13,7 +13,7 @@ export default class Lobby extends React.Component {
 
         this.handleAddGame = this.handleAddGame.bind(this);
         this.handleRemoveGame = this.handleRemoveGame.bind(this);
-        //this.handleJoinGame = this.handleJoinGame.bind(this);
+        this.handleJoinGame = this.handleJoinGame.bind(this);
         this.handleLoadGameList = this.handleLoadGameList.bind(this);
 
 
@@ -43,9 +43,23 @@ export default class Lobby extends React.Component {
             clearTimeout(this.timeoutId);
         }
     }
-    
-    createGameListItem(game,index){
+
+    removeButton(game){
         if (game.creator===this.props.name && game.loggedInPlayers===0 && game.status==='pending')
+            return (  <form onSubmit={this.handleRemoveGame}>
+                <input className="submit-btn btn" type="submit" value="remove game" name={game.name}/>
+            </form>)
+    }
+
+    joinButton(game){
+        if (game.numOfPlayers > game.loggedInPlayers && game.status ==='pending')
+            return (  <form onSubmit={this.handleJoinGame}>
+                <input className="submit-btn btn" type="submit" value="join game" name={game.name}/>
+            </form>)
+    }
+
+    createGameListItem(game,index){
+
             return (<li key={game.name + index} className="gameUiBlock">
                 {`
                             Name:${game.name}
@@ -54,19 +68,10 @@ export default class Lobby extends React.Component {
                             Logged in players:${game.loggedInPlayers}
                             Status:${game.status}
                             `}
-                <form onSubmit={this.handleRemoveGame}>
-                    <input className="submit-btn btn" type="submit" value="remove game" name={game.name}/>
-                </form>
+                {this.joinButton(game)}
+                {this.removeButton(game)}
+
             </li>)
-        else return (<li key={game.name + index} className="gameUiBlock">
-            {`
-                            Name:${game.name}
-                            Creator:${game.creator}
-                            Required players:${game.numOfPlayers}
-                            Logged in players:${game.loggedInPlayers}
-                            Status:${game.status}
-                            `}
-        </li>)
     }
 
     render() {
@@ -139,6 +144,24 @@ export default class Lobby extends React.Component {
                 } else {
                     if (response.status === 403) {
                         this.setState(()=> ({errMessage: "game name already exist, please try another one"}));
+                    }
+                }
+            });
+        return false;
+    }
+
+    handleJoinGame(e) {
+        e.preventDefault();
+        const name = e.target.elements[0].name;
+        fetch('/Lobby/JoinGame', {method:'POST', body: name, credentials: 'include'})
+            .then(response=> {
+                if (response.ok){
+                    this.setState(()=> ({errMessage: ""}));
+                    this.props.joinSuccessHandler(name);
+                } else {
+                    if (response.status === 403) {
+                        this.setState(()=> ({errMessage: "game already deleted"}));
+                        this.props.joinErrorHandler();
                     }
                 }
             });
