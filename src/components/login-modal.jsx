@@ -38,7 +38,6 @@ export default class LoginModal extends React.Component {
         return null;
     }
 
-
     handleLogin(e) {
         e.preventDefault();
         const userName = e.target.elements.userName.value;

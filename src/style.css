@@ -10,7 +10,6 @@
 }
 
 .chat-base-container{
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: absolute;

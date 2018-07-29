@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import LoginModal from './login-modal.jsx';
-import ChatContainer from './chatContainer.jsx';
+import ChatContaier from './chatContainer.jsx';
 import Lobby from './Lobby.jsx';
+
 
 export default class BaseContainer extends React.Component {
     constructor(args) {
@@ -41,12 +42,12 @@ export default class BaseContainer extends React.Component {
 
     renderChatRoom() {
         return(
-            <div>
+            <div className="chat-base-container">
                 <div className="user-info-area">
                     Hello {this.state.currentUser.name}
                     <button className="logout btn" onClick={this.logoutHandler}>Logout</button>
                 </div>
-                <Lobby/>
+                <Lobby />
             </div>
         )
     }
