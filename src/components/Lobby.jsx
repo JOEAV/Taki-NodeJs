@@ -6,6 +6,7 @@ export default class Lobby extends React.Component {
         super(...args);
 
        this.state = {
+           errMessage: "",
            gameList:[]
        };
 
