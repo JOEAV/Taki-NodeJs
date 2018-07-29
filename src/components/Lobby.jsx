@@ -12,7 +12,7 @@ export default class Lobby extends React.Component {
 
 
         this.handleAddGame = this.handleAddGame.bind(this);
-        //this.handleRemoveGame = this.handleRemoveGame.bind(this);
+        this.handleRemoveGame = this.handleRemoveGame.bind(this);
         //this.handleJoinGame = this.handleJoinGame.bind(this);
         this.handleLoadGameList = this.handleLoadGameList.bind(this);
 
@@ -43,6 +43,31 @@ export default class Lobby extends React.Component {
             clearTimeout(this.timeoutId);
         }
     }
+    
+    createGameListItem(game,index){
+        if (game.creator===this.props.name && game.loggedInPlayers===0 && game.status==='pending')
+            return (<li key={game.name + index} className="gameUiBlock">
+                {`
+                            Name:${game.name}
+                            Creator:${game.creator}
+                            Required players:${game.numOfPlayers}
+                            Logged in players:${game.loggedInPlayers}
+                            Status:${game.status}
+                            `}
+                <form onSubmit={this.handleRemoveGame}>
+                    <input className="submit-btn btn" type="submit" value="remove game" name={game.name}/>
+                </form>
+            </li>)
+        else return (<li key={game.name + index} className="gameUiBlock">
+            {`
+                            Name:${game.name}
+                            Creator:${game.creator}
+                            Required players:${game.numOfPlayers}
+                            Logged in players:${game.loggedInPlayers}
+                            Status:${game.status}
+                            `}
+        </li>)
+    }
 
     render() {
         return (
@@ -68,17 +93,7 @@ export default class Lobby extends React.Component {
                 
                 <h1>Games:</h1>
                 <ul>
-                    {this.state.gameList.map((game, index) => {
-                        return (<li key={game.name + index} class="gameUiBlock">
-                            {`
-                            Name:${game.name}
-                            Creator:${game.creator}
-                            Required players:${game.numOfPlayers}
-                            Logged in players:${game.loggedInPlayers}
-                            Status:${game.status}
-                            `}
-                        </li>)}
-                    )}
+                    {this.state.gameList.map((game, index) => this.createGameListItem(game,index))}
                 </ul>
 
             </div>
@@ -125,6 +140,23 @@ export default class Lobby extends React.Component {
                     if (response.status === 403) {
                         this.setState(()=> ({errMessage: "game name already exist, please try another one"}));
                     }
+                }
+            });
+        return false;
+    }
+
+    handleRemoveGame(e) {
+        e.preventDefault();
+        const name = e.target.elements[0].name;
+        fetch('/Lobby/removeGame', {method:'POST', body: name, credentials: 'include'})
+            .then(response=> {
+                if (response.ok){
+                    this.setState(()=> ({errMessage: ""}));
+                } else {
+                    if (response.status === 403) {
+                        this.setState(()=> ({errMessage: "game already deleted"}));
+                    }
+                    
                 }
             });
         return false;

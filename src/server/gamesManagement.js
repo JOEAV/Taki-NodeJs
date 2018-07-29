@@ -18,8 +18,6 @@ function addGame(req, res, next) {
             loggedInPlayers:0,
             creator: userName,
             status:"pending"
-            
-            
         }
         gameList[req.body.name] = game;
         next();
@@ -27,10 +25,10 @@ function addGame(req, res, next) {
 }
 
 function removeGame(req, res, next) {
-    if (gameList[req.params.name] === undefined) {
+    if (gameList[req.body] === undefined) {
         res.status(403).send('game does not exist');
     } else {
-        delete gameList[req.params.name];
+        delete gameList[req.body];
         next();
     }
 }
@@ -62,13 +60,9 @@ gamesManagement.post('/addGame', addGame, (req, res) => {
     res.sendStatus(200);
 });
 
-gamesManagement.get('/removeGame/:name', [
-        removeGame,
-        (req, res)=>
-        {
-            res.sendStatus(200);
-        }]
-);
+gamesManagement.post('/removeGame', removeGame, (req, res)=> {
+    res.sendStatus(200);
+});
 
 
 module.exports = gamesManagement;
