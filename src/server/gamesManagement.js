@@ -7,10 +7,11 @@ const gameList = {};
 
 
 function addGame(req, res, next) {
-    if (gameList[req.body.game.name] !== undefined) {
+    req.body = JSON.parse(req.body);
+    if (gameList[req.body.name] !== undefined) {
         res.status(403).send('game already exist');
     } else {
-        gameList[req.body.game.name] = req.body.game;
+        gameList[req.body.name] = req.body.name;
         next();
     }
 }
@@ -27,6 +28,7 @@ function removeGame(req, res, next) {
 function getGameInfo(name) {
     return gameList[name];
 }
+
 
 
 const gamesManagement = express.Router();

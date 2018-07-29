@@ -10,7 +10,7 @@ export default class Lobby extends React.Component {
        };
 
 
-        //this.handleAddGame = this.handleAddGame.bind(this);
+        this.handleAddGame = this.handleAddGame.bind(this);
         //this.handleRemoveGame = this.handleRemoveGame.bind(this);
         //this.handleJoinGame = this.handleJoinGame.bind(this);
         //this.loadGamesList = this.loadGamesList.bind(this);
@@ -45,7 +45,7 @@ export default class Lobby extends React.Component {
         return (
             <div className="gamesListArea">
                 <div className="addGameArea">
-                    <form>
+                    <form onSubmit={this.handleAddGame}>
                         <label>
                             Game name:
                             <input type='text' placeholder='game name' name="newGameName"  />
@@ -58,8 +58,9 @@ export default class Lobby extends React.Component {
                                 <option value="4">4</option>
                             </select>
                         </label>
+                        <input className="submit-btn btn" type="submit" value="add game"/>
                     </form>
-
+                    {this.renderErrorMessage()}
                 </div>
 
 
@@ -97,23 +98,33 @@ export default class Lobby extends React.Component {
             .catch(err => {throw err});
     }
 
-
+    renderErrorMessage() {
+        if (this.state.errMessage) {
+            return (
+                <div className="login-error-message">
+                    {this.state.errMessage}
+                </div>
+            );
+        }
+        return null;
+    }
 
     handleAddGame(e) {
         e.preventDefault();
-        const userName = e.target.elements.userName.value;
-        fetch('/users/addUser', {method:'POST', body: userName, credentials: 'include'})
+        const name = e.target.elements.newGameName.value;
+        const gameObj = {name};
+        const game = JSON.stringify(gameObj);
+        fetch('/Lobby/addGame', {method:'POST', body: game, credentials: 'include'})
             .then(response=> {
                 if (response.ok){
                     this.setState(()=> ({errMessage: ""}));
-                    this.props.loginSuccessHandler();
                 } else {
                     if (response.status === 403) {
-                        this.setState(()=> ({errMessage: "User name already exist, please try another one"}));
+                        this.setState(()=> ({errMessage: "game name already exist, please try another one"}));
                     }
-                    this.props.loginErrorHandler();
                 }
             });
         return false;
     }
+
 }
