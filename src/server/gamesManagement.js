@@ -8,10 +8,20 @@ const gameList = {};
 
 function addGame(req, res, next) {
     req.body = JSON.parse(req.body);
+    const userName = auth.getUserInfo(req.session.id).name;
     if (gameList[req.body.name] !== undefined) {
         res.status(403).send('game already exist');
     } else {
-        gameList[req.body.name] = req.body.name;
+        let game ={
+            name:req.body.name,
+            numOfPlayers:parseInt(req.body.numOfPlayers),
+            loggedInPlayers:0,
+            creator: userName,
+            status:"pending"
+            
+            
+        }
+        gameList[req.body.name] = game;
         next();
     }
 }
@@ -33,7 +43,7 @@ function getGameInfo(name) {
 
 const gamesManagement = express.Router();
 
-gamesManagement.get('/:name',(req, res) => {
+gamesManagement.get('/games/:name',(req, res) => {
     const game = getGameInfo(req.params.name);
     res.json({game});
 });

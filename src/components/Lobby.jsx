@@ -14,34 +14,36 @@ export default class Lobby extends React.Component {
         this.handleAddGame = this.handleAddGame.bind(this);
         //this.handleRemoveGame = this.handleRemoveGame.bind(this);
         //this.handleJoinGame = this.handleJoinGame.bind(this);
-        //this.loadGamesList = this.loadGamesList.bind(this);
+        this.handleLoadGameList = this.handleLoadGameList.bind(this);
 
 
     }
 
-    loadGamesList(){
-
-    }
-
-    componentDidMount(){
-        setInterval(()=>{
-            fetch('/lobby/allGames',{method:'GET',credentials:'include'}).then((response)=>{
+    handleLoadGameList(){
+        return fetch('/Lobby/allGames', {method: 'GET', credentials: 'include'})
+            .then((response) => {
                 if (!response.ok){
                     throw response;
                 }
+                this.timeoutId = setTimeout(this.handleLoadGameList, 200);
                 return response.json();
-                })
-                .then(gameList => {
-                    this.setState(()=>{gameList});
-                })
-                .catch(err => {throw err});
-        },200)
+            })
+            .then(gameList => {
+                this.setState(()=>({gameList}));
+            })
+            .catch(err => {throw err});
     }
 
-    shouldComponentUpdate(props){
-        return !_.isEqual(props.gameList,this.state.gameList)
-
+    componentDidMount(){
+        this.handleLoadGameList();
     }
+    
+    componentWillUnmount() {
+        if (this.timeoutId) {
+            clearTimeout(this.timeoutId);
+        }
+    }
+
     render() {
         return (
             <div className="gamesListArea">
@@ -53,7 +55,7 @@ export default class Lobby extends React.Component {
                         </label>
                         <label>
                             Number of players:
-                            <select>
+                            <select name="numOfPlayers">
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -63,8 +65,7 @@ export default class Lobby extends React.Component {
                     </form>
                     {this.renderErrorMessage()}
                 </div>
-
-
+                
                 <h1>Games:</h1>
                 <ul>
                     {this.state.gameList.map((game, index) => {
@@ -72,7 +73,7 @@ export default class Lobby extends React.Component {
                             {`
                             Name:${game.name}
                             Creator:${game.creator}
-                            Required players:${game.numPlayers}
+                            Required players:${game.numOfPlayers}
                             Logged in players:${game.loggedInPlayers}
                             Status:${game.status}
                             `}
@@ -113,7 +114,8 @@ export default class Lobby extends React.Component {
     handleAddGame(e) {
         e.preventDefault();
         const name = e.target.elements.newGameName.value;
-        const gameObj = {name};
+        const numOfPlayers = e.target.elements.numOfPlayers.value;
+        const gameObj = {name,numOfPlayers};
         const game = JSON.stringify(gameObj);
         fetch('/Lobby/addGame', {method:'POST', body: game, credentials: 'include'})
             .then(response=> {
@@ -127,5 +129,4 @@ export default class Lobby extends React.Component {
             });
         return false;
     }
-
 }
