@@ -241,11 +241,12 @@ class GameManager{
         if (game.pot!==undefined)
         this.pot.updateDeck(game.pot);
         for (let i=0;i<this.numOfPlayers;i++){
-            if (game.players!== undefined && game.players[i]!==undefined)
+            if (game.players!== undefined && game.players[i]!==undefined) {
                 this.players[i]._deck.updateDeck(game.players[i]._cardArray);
                 this.players[i]._avgMovesTime = game.players[i]._avgMovesTime;
                 this.players[i]._moves = game.players[i]._moves;
                 this.players[i].reachedLastCard = game.players[i].reachedLastCard;
+            }
 
         }
         if (game.activePlayer!==undefined)
