@@ -30,62 +30,7 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33a3db62-20aa-4cde-8db4-22ad49bedc36" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Deck.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GameDeck.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GameRow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Player.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Popup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Pot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Stage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Statistics.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/StatsFragment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Timer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TopBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TurnIndicator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/css/TakiPopup.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/css/card.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/css/chooseColor.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/css/endGame.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/css/gameDeck.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/css/gameRow.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/css/player.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/css/playerDeck.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/css/pot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/css/stage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/css/topBar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/css/turnIndicator.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/js/Controllers/controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/js/Logic/Card.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/js/Logic/GameManager.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/js/Logic/Player.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/js/Logic/Timer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/js/Logic/chooseColorPopup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/js/Logic/endGamePopup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/js/Logic/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/js/Logic/takiPopup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/js/serviceUtils/cloneUtils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/js/serviceUtils/timeUtils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/webpack.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server/js/Logic/Card.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server/js/Logic/Timer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server/js/serviceUtils/cloneUtils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server/js/serviceUtils/timeUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Game.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Game.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Lobby.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Lobby.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/baseContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/baseContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/gamesContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gamesContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login-modal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login-modal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/gamesManagement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/gamesManagement.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="33a3db62-20aa-4cde-8db4-22ad49bedc36" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/public/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -475,12 +420,12 @@
       <workItem from="1532851957925" duration="4608000" />
       <workItem from="1532860491478" duration="10316000" />
       <workItem from="1532896356539" duration="55285000" />
-      <workItem from="1533331892059" duration="43569000" />
+      <workItem from="1533331892059" duration="44141000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136866000" />
+    <option name="totallyTimeSpent" value="137438000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -495,7 +440,7 @@
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15430982" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15430982" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32900432" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -504,7 +449,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32923076" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.40102565" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.40102565" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
