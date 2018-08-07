@@ -12,7 +12,7 @@ export default class App extends Component{
         this.state={
             myIndex:-1,
             gameDeck:null,
-            players:null,
+            players:[],
             pot:null,
             activePlayer:0,
             howMany2Plus:0,

@@ -4,7 +4,7 @@ import Card from './Card'
 import './css/card.css'
 
 
-
+import {notifyCardIsDragged} from './js/Controllers/controller.js'
 import {onCardHoverStart, onCardHoverEnd, handlePulledTopCardClick,onDragStart,onDragEnd} from "./js/Controllers/controller";
 
 export default class Deck extends Component{
@@ -25,33 +25,40 @@ export default class Deck extends Component{
             deckCards:[],
             cardsRotationDegree:this.setRotationDegrees()
         }
-
-
-
     }
 
     getDeckCssName() {
-        let res;
+        let res ='';
         switch (this.props.owner) {
             case 'playerActive':
             case 'playerNonActive':
-                res = 'cardsRowPlayer';
                 break;
             case 'algo':
-                res = 'cardsRowAlgo';
                 break;
             case 'pot':
                 res = 'pot';
-                break;
+                break
             case 'gameDeck':
                 res = 'gameDeck';
                 break;
+        }
+        if(this.props.layout){
+            switch (this.props.layout.formation) {
+                case 'col':
+                    res= 'cardsCol'
+                    res = `${res} ${this.props.layout.position === 'left' ? 'cardsColLeft' : 'cardsColRight'}`
+                    break;
+                case 'row':
+                    res = 'cardsRow'
+                    res = `${res} ${this.props.layout.position === 'top' ? 'cardsRowTop' : 'cardsRowBottom'}`
+            }
+
+            return res;
         }
         return res;
     }
 
     mapCardBehaviourByOwner(props){
-
         let defaultBehaviour = {
             clickable: false,
             backgroundShown: false,
@@ -108,7 +115,6 @@ export default class Deck extends Component{
                 break;
             default:
                 throw new Error('no such owner !');
-
         }
 
         if (props.replayMode===true){
@@ -169,7 +175,7 @@ export default class Deck extends Component{
             let newBehaviours = [];
 
             (props.topCard && props.behaviour.clickable && !props.replayMode) ? newBehaviours.push('topCardInGameDeck') : null;
-            (beforeSpeardStyleBehaviour.spreadable) ?  newBehaviours.push('cardInsideCardRowAfterSpread') : null;
+            (beforeSpeardStyleBehaviour.spreadable) ?  newBehaviours.push(props.layout.formation === 'row' ? 'cardInsideCardRowAfterSpread' : 'cardInsideCardColAfterSpread') : null;
             (beforeSpeardStyleBehaviour.hoverable  && !props.replayMode) ? newBehaviours.push('cardPlayer') : null;
             let afterSpreadStyleBehaviour = Object.assign(beforeSpeardStyleBehaviour , {
                 styleClasses:{
@@ -254,12 +260,27 @@ export default class Deck extends Component{
         this.needsToSetState(props);
     }
 
+    // columnLayoutFixer(){
+    //     this.props.layout ?
+    //         this.props.layout.formation==='col' ?
+    //             this.props.layout.position = 'left'
+    //                 ?
+    //                 return 'cardColLeft'
+    //                 :
+    //                 return 'cardColRight'
+    //         :
+    //         return ''
+    //     :
+    //     return ''
+    //
+    //
+    // }
 
     render(){
 
         let  numOfChildrenCards  = this.props.cards.length-1
         return(
-            <div className={this.state.deckCssName} style={{zIndex: this.props.containerZIndex}}>
+            <div className={this.state.deckCssName} style={{zIndex: this.props.containerZIndex,flex:1}}>
                 {
 
                     this.props.cards
@@ -270,9 +291,11 @@ export default class Deck extends Component{
                                 <Card id={card.id}  key={card.id} rank={card._rank} color={card._color}  behaviour={Object.assign({},this.state.cardsBehaviour)}
                                       style={ this.state.cardsBehaviour.rotateable
                                           ? Object.assign({},this.rotateCard(this.state.cardsRotationDegree[index]),this.setCardBackground(card._rank,card._color))
-                                          : Object.assign({},this.setCardBackground(card._rank,card._color))}
+                                          : Object.assign({},this.setCardBackground(card._rank,card._color)
+
+                                          )}
                                       topCard={this.state.owner==='gameDeck' && index === numOfChildrenCards && !this.props.replayMode}
-                                      actions={ Object.assign({},this.state.actions)} replayMode={this.props.replayMode}/>
+                                      actions={ Object.assign({},this.state.actions)} replayMode={this.props.replayMode} layout={this.props.layout} />
                             )
                         })
                         :
