@@ -30,9 +30,7 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33a3db62-20aa-4cde-8db4-22ad49bedc36" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/server/gamesManagement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/gamesManagement.js" afterDir="false" />
-    </list>
+    <list default="true" id="33a3db62-20aa-4cde-8db4-22ad49bedc36" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/public/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,11 +44,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="1_blue.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/img/1_blue.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/App.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -87,6 +80,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="GameManager.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/js/Logic/GameManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-732">
+              <caret line="135" column="33" lean-forward="true" selection-start-line="135" selection-start-column="33" selection-end-line="135" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="gamesContainer.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/gamesContainer.jsx">
           <provider selected="true" editor-type-id="text-editor">
@@ -108,7 +110,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="179">
@@ -327,6 +329,21 @@
               <item name="chat-example" type="b2602c69:ProjectViewProjectNode" />
               <item name="chat-example" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chat-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chat-example" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="Logic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chat-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chat-example" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -391,12 +408,12 @@
       <workItem from="1532851957925" duration="4608000" />
       <workItem from="1532860491478" duration="10316000" />
       <workItem from="1532896356539" duration="55285000" />
-      <workItem from="1533331892059" duration="49955000" />
+      <workItem from="1533331892059" duration="50561000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143252000" />
+    <option name="totallyTimeSpent" value="143858000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -410,7 +427,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15430982" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15430982" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32820514" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -419,7 +436,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32923076" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.40102565" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.40102565" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -702,13 +719,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/js/Logic/GameManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="262" column="14" selection-start-line="262" selection-start-column="4" selection-end-line="262" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -806,6 +816,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="274" column="9" selection-start-line="274" selection-start-column="9" selection-end-line="274" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/gamesManagement.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
@@ -813,10 +830,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
+    <entry file="file://$PROJECT_DIR$/src/components/js/Logic/GameManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="274" column="9" selection-start-line="274" selection-start-column="9" selection-end-line="274" selection-end-column="9" />
+        <state relative-caret-position="-732">
+          <caret line="135" column="33" lean-forward="true" selection-start-line="135" selection-start-column="33" selection-end-line="135" selection-end-column="33" />
         </state>
       </provider>
     </entry>
