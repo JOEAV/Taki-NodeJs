@@ -75,9 +75,6 @@ function updateStateByRef(...refKeys){
          reactRootCompRef.setState(newState)
 }
 
-
-
-
 // const notifyCardIsDragged = (isDragged) =>{
 //     let newState = {};
 //     newState['fireAnimation'] = isDragged;

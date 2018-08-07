@@ -133,6 +133,7 @@ gamesManagement.get('/timeElapsed',(req, res) => {
 gamesManagement.get('/allGames',(req, res) => {
     const gamesArray = [];
     _.forIn(gameList,(value,key)=>{
+        value.timer=null;
         gamesArray.push(value);
     })
 
