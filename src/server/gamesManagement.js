@@ -127,14 +127,16 @@ gamesManagement.get('/timeElapsed',(req, res) => {
         ms:gameList[gameName].timer.ms,
         sec:gameList[gameName].timer.sec,
     }
+
     res.json(result);
 });
 
 gamesManagement.get('/allGames',(req, res) => {
     const gamesArray = [];
     _.forIn(gameList,(value,key)=>{
-        value.timer=null;
-        gamesArray.push(value);
+        let result ={...gameList[key]}
+        result.timer=null;
+        gamesArray.push(result);
     })
 
     res.json(gamesArray);
