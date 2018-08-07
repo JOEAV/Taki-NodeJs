@@ -1,0 +1,92 @@
+
+#topBar {
+    z-index: 200;
+    height: 200px;
+    background-color: #303F9F;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
+    color: #ffffff;
+
+}
+
+#topBar::after {
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    content: '';
+    height: 30%;
+    width: 100%;
+
+}
+
+#topBarButtonsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.topBarItemFirstRow {
+    display: flex;
+    font-size: 1.5em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-left: 30px;
+}
+
+#topBarFirstRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+.surrender-button{
+    margin-top:30px;
+    padding: 10px 15px;
+    color: white;
+    background-color: #e74c3c; /* Red */
+    border-radius: 4px;
+    border: none;
+    font-size: 110%;
+    border: 2px solid #e74c3c;
+}
+
+.surrender-button:hover{
+    border: 2px solid #e74c3c ;
+    background-color: white; /* Green */
+    color: #e74c3c;
+}
+
+.replay-button{
+    min-width:117px;
+    margin-right:25px;
+    margin-left:25px;
+    margin-top:30px;
+    padding: 10px 15px;
+    color: white;
+    background-color: #74b9ff; /* Red */
+    border-radius: 4px;
+    border: none;
+    font-size: 110%;
+    border: 2px solid #74b9ff;
+}
+
+.replay-button:hover{
+    border: 2px solid #74b9ff ;
+    background-color: white; /* Green */
+    color: #74b9ff;
+}

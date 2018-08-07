@@ -23,9 +23,9 @@ export default class GamesContainer extends React.Component {
 
     render() {
         if (this.state.gameName === '') {
-            return (<Lobby name={this.props.name} joinSuccessHandler={this.handleSuccessedJoin} joinErrorHandler={this.handleJoinError}/>)
+            return (<Lobby name={this.props.currentUser.name} joinSuccessHandler={this.handleSuccessedJoin} joinErrorHandler={this.handleJoinError}/>)
         }
-        return <Game/>
+        return <Game gameName={this.state.gameName} currentUser={this.props.currentUser}/>
     }
 
 

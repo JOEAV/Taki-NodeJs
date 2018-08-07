@@ -17,10 +17,9 @@ export default class LoginModal extends React.Component {
         return (
             <div className="login-page-wrapper">
                 <img className="taki-logo" src={takiImage} />
-                <form onSubmit={this.handleLogin}>
-                    <label className="username-label" htmlFor="userName"> name: </label>
-                    <input className="username-input" name="userName"/>                        
-                    <input className="submit-btn btn" type="submit" value="Login"/>
+                <form onSubmit={this.handleLogin} className="login-form-wrapper">
+                    <input className="username-input" name="userName" placeholder="enter name"/>
+                    <input id="login-button" type="submit" value="Login"/>
                 </form>
                 {this.renderErrorMessage()}
             </div>

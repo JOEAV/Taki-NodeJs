@@ -7,16 +7,14 @@ export default class Lobby extends React.Component {
 
        this.state = {
            errMessage: "",
-           gameList:[]
+           gameList:[],
+           joinGame:false
        };
 
-
-        this.handleAddGame = this.handleAddGame.bind(this);
-        this.handleRemoveGame = this.handleRemoveGame.bind(this);
-        this.handleJoinGame = this.handleJoinGame.bind(this);
-        this.handleLoadGameList = this.handleLoadGameList.bind(this);
-
-
+       this.handleAddGame = this.handleAddGame.bind(this);
+       this.handleRemoveGame = this.handleRemoveGame.bind(this);
+       this.handleJoinGame = this.handleJoinGame.bind(this);
+       this.handleLoadGameList = this.handleLoadGameList.bind(this);
     }
 
     handleLoadGameList(){
@@ -29,6 +27,7 @@ export default class Lobby extends React.Component {
                 return response.json();
             })
             .then(gameList => {
+                if (!this.state.joinGame)
                 this.setState(()=>({gameList}));
             })
             .catch(err => {throw err});
@@ -78,7 +77,7 @@ export default class Lobby extends React.Component {
         return (
             <div className="gamesListArea">
                 <div className="addGameArea">
-                    <form onSubmit={this.handleAddGame}>
+                    <form onSubmit={this.handleAddGame} className="addGameForm">
                         <label>
                             Game name:
                             <input type='text' placeholder='game name' name="newGameName"  />
@@ -91,7 +90,7 @@ export default class Lobby extends React.Component {
                                 <option value="4">4</option>
                             </select>
                         </label>
-                        <input className="submit-btn btn" type="submit" value="add game"/>
+                        <input id="login-button" type="submit" value="add game"/>
                     </form>
                     {this.renderErrorMessage()}
                 </div>
@@ -156,7 +155,7 @@ export default class Lobby extends React.Component {
         fetch('/Lobby/JoinGame', {method:'POST', body: name, credentials: 'include'})
             .then(response=> {
                 if (response.ok){
-                    this.setState(()=> ({errMessage: ""}));
+                    this.setState(()=> ({errMessage: "",joinGame:true}));
                     this.props.joinSuccessHandler(name);
                 } else {
                     if (response.status === 403) {

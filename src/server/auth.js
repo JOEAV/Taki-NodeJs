@@ -24,7 +24,8 @@ function addUserToAuthList(req, res, next) {
         userList[req.session.id] ={}
 		userList[req.session.id].name = req.body;
         userList[req.session.id].gameName = '';
-		next();
+        userList[req.session.id].index = -1;
+        next();
 	}
 }
 
@@ -44,4 +45,8 @@ function getUserInfo(id) {
 function updateGame(id,gameName) {
     userList[id].gameName=gameName;
 }
-module.exports = {userAuthentication, addUserToAuthList, removeUserFromAuthList, getUserInfo,updateGame}
+
+function updateIndex(id,index) {
+    userList[id].index=index;
+}
+module.exports = {userAuthentication, addUserToAuthList, removeUserFromAuthList, getUserInfo,updateGame,updateIndex}

@@ -4,3 +4,4 @@ node_modules
 .idea/workspace.xml
 public
 /public/bundle.js
+package-lock.json

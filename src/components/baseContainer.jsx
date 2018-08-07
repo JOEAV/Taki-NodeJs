@@ -13,7 +13,7 @@ export default class BaseContainer extends React.Component {
                 name: ''
             }
         };
-        
+
         this.handleSuccessedLogin = this.handleSuccessedLogin.bind(this);
         this.handleLoginError = this.handleLoginError.bind(this);
         this.fetchUserInfo = this.fetchUserInfo.bind(this);
@@ -39,14 +39,15 @@ export default class BaseContainer extends React.Component {
         this.setState(()=>({showLogin:true}));
     }
 
+
     renderChatRoom() {
         return(
             <div className="chat-base-container">
                 <div className="user-info-area">
                     Hello {this.state.currentUser.name}
-                    <button className="logout btn" onClick={this.logoutHandler}>Logout</button>
+                    <button id="logout-button" onClick={this.logoutHandler}>Logout</button>
                 </div>
-                <GamesContainer name={this.state.currentUser.name} />
+                <GamesContainer currentUser={this.state.currentUser} />
             </div>
         )
     }

@@ -1,3 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+
+    font-family: Roboto;
+}
+
+body {
+    overflow-x: hidden;
+    background: #3498db;
+    color:white;
+}
 .btn {
     font-size: 16px;
     padding-left: 8px;
@@ -8,6 +23,58 @@
     border-color: #d0f3e8;
     margin: 0 3px;
 }
+.addGameForm{
+    display: inline-flex;
+    flex-direction: column;
+}
+
+#login-button{
+    color: white;
+    background-color: #303F9F; /* Red */
+    border-radius: 4px;
+    border: none;
+    border: 2px solid #303F9F ;
+    font-size:200%;
+    margin-top:10px;
+}
+
+#login-button:hover{
+    border: 2px solid #303F9F;
+    background-color: white; /* Green */
+    color: #303F9F;
+
+}
+
+#logout-button{
+    width:100px;
+    margin-top:10px;
+    padding: 10px 15px;
+    color: white;
+    background-color: #e74c3c; /* Red */
+    border-radius: 4px;
+    border: none;
+    font-size: 110%;
+    border: 2px solid #e74c3c ;
+}
+
+#logout-button:hover{
+    border: 2px solid #e74c3c ;
+    background-color: white; /* Green */
+    color: #e74c3c;
+}
+
+
+.login-form-wrapper{
+    display: inline-flex;
+    flex-direction: column;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height:80px;
+    width:250px;
+
+}
 
 .chat-base-container{
     flex-direction: column;
@@ -17,21 +84,26 @@
     bottom: 0;
     left: 0;
     right: 0;
-    max-width: 500px;
 }
 
 .chat-base-container .user-info-area {
+    display:flex;
+    flex-direction: column;
     margin: 8px;
     font-size: 16px;
 }
 
 .login-page-wrapper {
+    padding-top:90px;
     position: absolute;
     left: 50%;
     transform: translate(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: #3498db;
+    width:100%;
+    height:100%;
 }
 
 .login-page-wrapper .taki-logo {
