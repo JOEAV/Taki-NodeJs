@@ -130,7 +130,7 @@ export default class Lobby extends React.Component {
     renderErrorMessage() {
         if (this.state.errMessage) {
             return (
-                <div className="login-error-message">
+                <div className="add-game-error-message">
                     {this.state.errMessage}
                 </div>
             );
