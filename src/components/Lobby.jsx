@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './css/lobby.css'
 const _ = require('lodash');
 export default class Lobby extends React.Component {
     constructor(args) {
@@ -60,46 +61,53 @@ export default class Lobby extends React.Component {
     createGameListItem(game,index){
 
             return (<li key={game.name + index} className="gameUiBlock">
-                {`
-                            Name:${game.name}
-                            Creator:${game.creator}
-                            Required players:${game.numOfPlayers}
-                            Logged in players:${game.loggedInPlayers}
-                            Status:${game.status}
-                            `}
+                <span className={'gameBlock'}>
+                    <h3>{`Name: ${game.name}`}</h3>
+                    <h3>{`Creator: ${game.creator}`}</h3>
+                    <h3>{`Required players: ${game.numOfPlayers}`}</h3>
+                    <h3>{`Logged in players: ${game.loggedInPlayers}`}</h3>
+                    <h3>{`Status: ${game.status}`}</h3>
+
+                <span>
                 {this.joinButton(game)}
                 {this.removeButton(game)}
+                </span>
 
+                </span>
             </li>)
     }
 
     render() {
         return (
             <div className="gamesListArea">
-                <div className="addGameArea">
-                    <form onSubmit={this.handleAddGame} className="addGameForm">
+                <div className="lobbyAddGameRow">
+                    <form    onSubmit={this.handleAddGame} className="addGameForm">
+                        <h2>Add new game</h2>
                         <label>
                             Game name:
-                            <input type='text' placeholder='game name' name="newGameName"  />
+                            <input className={'space'} type='text' placeholder='game name' name="newGameName"  />
                         </label>
                         <label>
                             Number of players:
-                            <select name="numOfPlayers">
+                            <select className={'space'} name="numOfPlayers">
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                             </select>
                         </label>
-                        <input id="login-button" type="submit" value="add game"/>
+                        <input className={'addGameButton'} type="submit" value="add game"/>
                     </form>
                     {this.renderErrorMessage()}
                 </div>
-                
-                <h1>Games:</h1>
-                <ul>
-                    {this.state.gameList.map((game, index) => this.createGameListItem(game,index))}
-                </ul>
 
+                <div className="gamesListContainer">
+                <h1>Available Games:</h1>
+                    <ul>
+                        <div className="gamesListContainerRow">
+                        {this.state.gameList.map((game, index) => this.createGameListItem(game,index))}
+                        </div>
+                        </ul>
+                </div>
             </div>
         );
     }

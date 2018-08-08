@@ -86,7 +86,7 @@ export default class Deck extends Component{
         switch (props.owner) {
             case 'playerActive':
                 newBehaviour.backgroundShown = true;
-                newBehaviour.hoverable = true
+                newBehaviour.hoverable = true;
                 newBehaviour.draggable = true;
                 newBehaviour.spreadable = true;
                 newBehaviour.styleClasses.cardWrapper=[...newBehaviour.styleClasses.cardWrapper,'cardInsideCardRow']

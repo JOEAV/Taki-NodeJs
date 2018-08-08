@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import LoginModal from './login-modal.jsx';
-import ChatContaier from './chatContainer.jsx';
 import GamesContainer from './gamesContainer.jsx';
 
 export default class BaseContainer extends React.Component {
@@ -44,8 +43,10 @@ export default class BaseContainer extends React.Component {
         return(
             <div className="chat-base-container">
                 <div className="user-info-area">
-                    Hello {this.state.currentUser.name}
+                    <h1> Hello  {this.state.currentUser.name}</h1>
+                    <div>
                     <button id="logout-button" onClick={this.logoutHandler}>Logout</button>
+                    </div>
                 </div>
                 <GamesContainer currentUser={this.state.currentUser} />
             </div>

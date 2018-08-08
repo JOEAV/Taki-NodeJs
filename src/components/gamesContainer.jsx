@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import LoginModal from './login-modal.jsx';
-import ChatContaier from './chatContainer.jsx';
 import Lobby from './Lobby.jsx';
 import Game from './game.jsx';
 
