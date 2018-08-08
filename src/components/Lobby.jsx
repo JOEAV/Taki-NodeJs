@@ -101,7 +101,7 @@ export default class Lobby extends React.Component {
                 </div>
 
                 <div className="gamesListContainer">
-                <h1>Available Games:</h1>
+                <h1 className={'marginTop'}>Available Games:</h1>
                     <ul>
                         <div className="gamesListContainerRow">
                         {this.state.gameList.map((game, index) => this.createGameListItem(game,index))}

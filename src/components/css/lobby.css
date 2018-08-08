@@ -74,6 +74,10 @@
     margin-left:50px;
 }
 
+.marginTop{
+    margin-top:200px;
+}
+
 .gameUiBlock{
     background-color: #f1c40f;
     display: flex;
