@@ -76,7 +76,7 @@
     justify-content: center;
 }
 
-#myStatHeader{
+.myStatHeader{
     font-weight: bold;
     text-decoration: underline;
     margin-top:10px;
