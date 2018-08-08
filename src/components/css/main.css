@@ -160,8 +160,21 @@
         right: 56%;
     }
 
-    .backgroundImageBoy {
-        background-image: url('../public/img/boy.png')
+    .backgroundImageBoy1 {
+        background-image: url('../public/img/boy1.png')
+    }
+
+
+    .backgroundImageBoy2 {
+        background-image: url('../public/img/boy2.png')
+    }
+
+    .backgroundImageBoy3 {
+        background-image: url('../public/img/boy3.png')
+    }
+
+    .backgroundImageBoy4 {
+        background-image: url('../public/img/boy4.png')
     }
 
     .backgroundImageRobot {
@@ -348,9 +361,23 @@
         right: 56%;
     }
 
-    .backgroundImageBoy {
-        background-image: url('../public/img/boy.png')
+    .backgroundImageBoy1 {
+        background-image: url('../public/img/boy1.png')
     }
+
+
+    .backgroundImageBoy2 {
+        background-image: url('../public/img/boy2.png')
+    }
+
+    .backgroundImageBoy3 {
+        background-image: url('../public/img/boy3.png')
+    }
+
+    .backgroundImageBoy4 {
+        background-image: url('../public/img/boy4.png')
+    }
+
 
     .backgroundImageRobot {
         background-image: url('../public/img/robot.png')
@@ -535,9 +562,23 @@
         right: 56%;
     }
 
-    .backgroundImageBoy {
-        background-image: url('../public/img/boy.png')
+    .backgroundImageBoy1 {
+        background-image: url('../public/img/boy1.png')
     }
+
+
+    .backgroundImageBoy2 {
+        background-image: url('../public/img/boy2.png')
+    }
+
+    .backgroundImageBoy3 {
+        background-image: url('../public/img/boy3.png')
+    }
+
+    .backgroundImageBoy4 {
+        background-image: url('../public/img/boy4.png')
+    }
+
 
     .backgroundImageRobot {
         background-image: url('../public/img/robot.png')
@@ -720,8 +761,21 @@
         right: 77%;
     }
 
-    .backgroundImageBoy {
-        background-image: url('../public/img/boy.png')
+    .backgroundImageBoy1 {
+        background-image: url('../public/img/boy1.png')
+    }
+
+
+    .backgroundImageBoy2 {
+        background-image: url('../public/img/boy2.png')
+    }
+
+    .backgroundImageBoy3 {
+        background-image: url('../public/img/boy3.png')
+    }
+
+    .backgroundImageBoy4 {
+        background-image: url('../public/img/boy4.png')
     }
 
     .backgroundImageRobot {
@@ -902,8 +956,21 @@
         transform:scale(0.80);
     }
 
-    .backgroundImageBoy {
-        background-image: url('../public/img/boy.png')
+    .backgroundImageBoy1 {
+        background-image: url('../public/img/boy1.png')
+    }
+
+
+    .backgroundImageBoy2 {
+        background-image: url('../public/img/boy2.png')
+    }
+
+    .backgroundImageBoy3 {
+        background-image: url('../public/img/boy3.png')
+    }
+
+    .backgroundImageBoy4 {
+        background-image: url('../public/img/boy4.png')
     }
 
     .backgroundImageRobot {

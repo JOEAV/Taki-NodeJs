@@ -93,7 +93,7 @@ export default class Deck extends Component{
 
                 break;
             case 'playerNonActive':
-                newBehaviour.backgroundShown = true;
+                newBehaviour.backgroundShown = false;
                 newBehaviour.spreadable = true;
                 newBehaviour.styleClasses.cardWrapper=[...newBehaviour.styleClasses.cardWrapper,'cardInsideCardRow']
 

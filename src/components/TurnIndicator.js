@@ -15,7 +15,7 @@ export default class TurnIndicator extends Component{
         if(this.props.isTakiMode){
             classNames= `turnIndicatorTakiOn`
         } else{
-            classNames =  this.props.activePlayer===0 ? `turnIndicator backgroundImageBoy` : `turnIndicator backgroundImageRobot`
+            classNames =   `turnIndicator backgroundImageBoy${this.props.activePlayer+1}`;
         }
         return classNames;
 
