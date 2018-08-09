@@ -50,14 +50,20 @@ export default class App extends Component{
         this.state.players.forEach(player=>{
             totalMoves+=player._moves;
         })
+        let leaveGameIsShown =  this.state.players[this.state.myIndex].place>0
         return(
             <div>
-            <TopBar totalMoves={totalMoves}
+            <TopBar
+                    stop = {this.state._winner>-1}
+                    name={this.state.players[this.state.myIndex]._name}
+                    totalMoves={totalMoves}
                     avgMovesTime={timeToString(this.state.players[this.state.activePlayer].avgMovesTime,true)}
                     reachedLastCard={this.state.players[this.state.activePlayer].reachedLastCard}
                     timeElapsed={this.state.timeElapsed}
                     replayMode={this.state.replayMode}
                     isTakiMode={this.state._isTakiMode}
+                    leaveGameIsShown ={leaveGameIsShown}
+                    players = {this.state.players}
             />
             <Stage
                 myIndex={this.state.myIndex}

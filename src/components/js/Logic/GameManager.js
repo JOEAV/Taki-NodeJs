@@ -24,9 +24,8 @@ class GameManager{
         this.replayMode=false;
         this.replayIndex=0;
         this.takiID=this.gameDeck.deck.filter(card=>card.rank==='taki' && card.color==='colorful').map(card=>card.id);
+        this.places = 0 ;
     }
-
-
 
     updateHistory(){
         let currentState={
@@ -62,6 +61,7 @@ class GameManager{
             if (game.pot!== undefined){
                 this.pot.updateDeck(game.pot);
             }
+            this.players=[];
             game.playersNames.forEach(playerName => {
                 this.players.push(new PlayerFactory.Player(playerName))
             })
@@ -249,6 +249,7 @@ class GameManager{
             }
 
         }
+
         if (game.activePlayer!==undefined)
         this.activePlayer= game.activePlayer;
         if (game.howMany2Plus!==undefined)
@@ -276,6 +277,9 @@ class GameManager{
             this.players[this.activePlayer].reachedLastCard++;
         if (isChangeTurn) {
             this.activePlayer = (1+ this.activePlayer) % this.numOfPlayers;
+            while (this.players[this.activePlayer].place>0 && this.places !== this.numOfPlayers){
+                this.activePlayer = (1+ this.activePlayer) % this.numOfPlayers;
+            }
         }
 
         return cards;
@@ -327,18 +331,31 @@ class GameManager{
 
     thereIsAWinner()
     {
-        if (this._winner !== NoWinner) {
-            return true;
+
+
+        if (this.places === this.numOfPlayers) {
+            return true
         }
+
         for (let i=0; i<this.players.length; i++){
-            if (this.players[i].howManyCards()===0) {
-                this._winner = i;
-                return true;
+            if (this.players[i].howManyCards()===0 && this.players[i].place === -1) {
+                this.players[i].place = ++this.places
+            }
+        }
+
+        if (this.places === this.numOfPlayers-1) {
+            for (let i=0; i<this.players.length; i++){
+                if (this.players[i].howManyCards()>0) {
+                    this.players[i].place = ++this.places
+                    this.winner=0
+                    return true
+                }
             }
         }
         return false;
     }
 }
+
 
 
 const gameManager = new GameManager();

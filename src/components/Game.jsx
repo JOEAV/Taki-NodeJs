@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import takiImage from './resources/superTaki.jpg';
 import App from './App';
+import {backToLobby} from "./js/Controllers/controller";
 
 export default class Game extends React.Component {
     constructor(props) {
@@ -47,9 +48,10 @@ export default class Game extends React.Component {
     }
 
     render() {
-        if (this.state.statusInfo.gameDeck === null)
+        if (this.state.statusInfo.gameDeck === null || this.state.statusInfo.status === 'pending')
         return (
             <div className="login-page-wrapper">
+                <button id="replay-button" onClick={backToLobby}>back To Lobby</button>
                <div>Pending</div>
                 <div>wait for {this.state.statusInfo.numOfMissing} players </div>
             </div>

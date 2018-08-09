@@ -31,10 +31,23 @@ const getStatus = () => {
             let activePlayer = gameManager.activePlayer
             gameManager.update(statusInfo)
             if (potLength!== gameManager.pot._cardArray.length || gameDeckLength!==gameManager.gameDeck._cardArray.length || activePlayer!== gameManager.activePlayer ){
+                if (gameManager.thereIsAWinner()===true) {
+                    if (gameManager.winner===1){
+                        gameManager.changeTurn(true);
+                    }
+                    gameManager.timer.stop();
+                    updateStateByRef('players','gameDeck','activePlayer',"_winner");
+
+                }
                 updateStateByRef('players','gameDeck','activePlayer',"_winner","howMany2Plus");
             }
         })
         .catch(err => {throw err});
+}
+
+const backToLobby = () => {
+    return fetch('/Lobby/leaveGame', {method: 'GET', credentials: 'include'}).then(()=>gameManager.resetGame())
+
 }
 
 const registerListener = (selfRef)=>{
@@ -101,8 +114,7 @@ const prev = () => {
 }
 
 const surrender=()=>{
-    gameManager.winner=1;
-    gameManager.timer.stop();
+    gameManager.winner=0;
     updateStateByRef("_winner");
 }
 
@@ -122,8 +134,12 @@ const handleStop = () => {
         })
 
     }
+    if (gameManager.__isTakiMode === false)
     gameManager.activePlayer = (gameManager.activePlayer + 2) % gameManager.numOfPlayers;
 
+    while (gameManager.players[gameManager.activePlayer].place > 0 && gameManager.places !== gameManager.numOfPlayers) {
+        gameManager.activePlayer = (1+ gameManager.activePlayer) % gameManager.numOfPlayers;
+    }
 
     updateStateByRef('players','gameDeck','activePlayer',"howMany2Plus",'pot');
     if (gameManager.thereIsAWinner()===true) {
@@ -461,5 +477,5 @@ export {
     timeElapsed,initGame,registerListener,replay,next,prev,restart
     ,onCardHoverStart,onCardHoverEnd,registerPotRef,onTopGameDeckCardHover,surrender,
     onCardDroppedHandler,handleColorChoosed,notifyChangeColorCardDropped,handlePulledTopCardClick,
-    onDragStart,onDragEnd,TakiModeclickEventListener
+    onDragStart,onDragEnd,TakiModeclickEventListener,backToLobby
 }

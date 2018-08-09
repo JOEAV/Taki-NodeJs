@@ -63,12 +63,23 @@ function joinGame(req, res, next) {
     }
     else {
         gameList[req.body].playersNames.push(userName);
+        gameList[req.body].gameDeck = null;
         if (++gameList[req.body].loggedInPlayers===gameList[req.body].numOfPlayers) {
             gameList[req.body].status = 'started'
             let cardDeck= new CardFactory.CardDeck(true);
             cardDeck = cardDeck._cardArray;
             gameList[req.body].originalGameDeck = cardDeck;
             gameList[req.body].gameDeck = cardDeck;
+            if ( gameList[req.body].pot !== undefined){
+                delete gameList[req.body].players
+                delete gameList[req.body].activePlayer
+                delete gameList[req.body].pot
+                delete gameList[req.body].howMany2Plus
+                delete gameList[req.body]._isTakiMode
+                delete gameList[req.body]._winner
+                delete gameList[req.body]._totalMove;
+
+            }
 
         }
         auth.updateGame(req.session.id,req.body);
@@ -79,6 +90,22 @@ function joinGame(req, res, next) {
         }
         next();
     }
+}
+
+function leaveGame (req, res) {
+    const gameName = auth.getUserInfo(req.session.id).gameName;
+
+    const game  = gameList[gameName];
+    game.loggedInPlayers--;
+    if (game.loggedInPlayers===0){
+        game.playersNames=[];
+        game.status='pending'
+    }
+    auth.updateGame(req.session.id,'');
+    auth.updateIndex(req.session.id, -1);
+
+    res.sendStatus(200);
+
 }
 
 
@@ -156,6 +183,10 @@ gamesManagement.post('/removeGame', removeGame, (req, res)=> {
     res.sendStatus(200);
 });
 gamesManagement.post('/joinGame', joinGame, (req, res)=> {
+    res.sendStatus(200);
+});
+
+gamesManagement.get('/leaveGame', leaveGame, (req, res)=> {
     res.sendStatus(200);
 });
 

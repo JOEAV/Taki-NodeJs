@@ -17,7 +17,17 @@ export default class GamesContainer extends React.Component {
         this.fetchUserInfo = this.fetchUserInfo.bind(this);
         this.withdrawHandler= this.withdrawHandler.bind(this);
 
+        this.getUserGame =  this.getUserGame.bind(this)
+    }
+
+    componentDidMount(){
         this.getUserGame();
+    }
+
+    componentWillUnmount() {
+        if (this.timeoutId) {
+            clearTimeout(this.timeoutId);
+        }
     }
 
     render() {
@@ -41,7 +51,9 @@ export default class GamesContainer extends React.Component {
     getUserGame() {
         this.fetchUserInfo()
             .then(userInfo => {
+                if (this.setState.gameName!==userInfo.gameName)
                 this.setState(()=>({gameName:userInfo.gameName}));
+                this.timeoutId = setTimeout(this.getUserGame, 200);
             })
             .catch(err=>{
                 if (err.status === 401) { // incase we're getting 'unautorithed' as response
@@ -49,6 +61,8 @@ export default class GamesContainer extends React.Component {
                 }
             });
     }
+
+
 
     fetchUserInfo() {
         return fetch('/users',{method: 'GET', credentials: 'include'})

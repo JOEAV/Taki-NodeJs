@@ -14,6 +14,7 @@ export default class TimerStatsFragment extends Component{
         }
         this.getTimer = this.getTimer.bind(this)
     }
+
     componentWillMount(){
         this.getTimer();
     }
@@ -25,6 +26,9 @@ export default class TimerStatsFragment extends Component{
     }
     render(){
         let val=this.props.replayMode? this.props.timeElapsed:this.state.timeElapsed;
+        if (this.props.stopTime === true){
+            this.stopTimer();
+        }
         return(
             <StatsFragment style='topBarItemFirstRow' title="Time Elapsed" val={val} />
         )
@@ -32,6 +36,7 @@ export default class TimerStatsFragment extends Component{
     }
 
     getTimer() {
+
         return fetch('/Lobby/timeElapsed', {method: 'GET', credentials: 'include'})
             .then((response) => {
                 if (!response.ok){
@@ -49,9 +54,12 @@ export default class TimerStatsFragment extends Component{
                 timer.ms=timeElapsed.ms;
             })
             .catch(err => {throw err});
+
     }
 
-
-
-
+    stopTimer(){
+        if (this.timeoutId) {
+            clearTimeout(this.timeoutId);
+        }
+    }
 }

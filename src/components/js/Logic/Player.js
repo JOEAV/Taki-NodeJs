@@ -9,7 +9,8 @@ class Player {
         this.reachedLastCard=0;
         this._totalMoves=0;
         this._totalAvgMoveTime={min:0,sec:0,ms:0};
-
+        this.place = -1;
+        this.won =false
     }
 
 
