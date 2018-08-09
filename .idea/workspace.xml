@@ -30,20 +30,7 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33a3db62-20aa-4cde-8db4-22ad49bedc36" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Game.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Game.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Popup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Statistics.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Statistics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Timer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Timer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TopBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TopBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/gamesContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gamesContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/js/Controllers/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/js/Controllers/controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/js/Logic/GameManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/js/Logic/GameManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/js/Logic/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/js/Logic/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/gamesManagement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/gamesManagement.js" afterDir="false" />
-    </list>
+    <list default="true" id="33a3db62-20aa-4cde-8db4-22ad49bedc36" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/public/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -140,8 +127,8 @@
       <file leaf-file-name="Statistics.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Statistics.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+            <state relative-caret-position="297">
+              <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -292,32 +279,6 @@
             <path>
               <item name="Taki-NodeJs" type="b2602c69:ProjectViewProjectNode" />
               <item name="Taki-NodeJs" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Taki-NodeJs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Taki-NodeJs" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="express" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Taki-NodeJs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Taki-NodeJs" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="express" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Taki-NodeJs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Taki-NodeJs" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="express" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Taki-NodeJs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Taki-NodeJs" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -425,12 +386,12 @@
       <workItem from="1532896356539" duration="55285000" />
       <workItem from="1533331892059" duration="50561000" />
       <workItem from="1533742342566" duration="4730000" />
-      <workItem from="1533759818524" duration="16949000" />
+      <workItem from="1533759818524" duration="17200000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168300000" />
+    <option name="totallyTimeSpent" value="168551000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -842,8 +803,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Statistics.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+        <state relative-caret-position="297">
+          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
         </state>
       </provider>
     </entry>
